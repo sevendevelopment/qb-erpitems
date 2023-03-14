@@ -75,3 +75,47 @@
         ["blipcolor"] = 0,
     },
 ```
+
+## Add to DPEmotes
+```lua
+   ["Cuddle1"] = {"cuddlepartner1@pawuk", "cuddlepartner1_clip", "Cuddle1", AnimationOptions =
+   {
+	   EmoteLoop = true,
+       EmoteMoving = false,
+   }},
+   ["Cuddle2"] = {"cuddlepartner2@pawuk", "cuddlepartner2_clip", "Cuddle2", AnimationOptions =
+   {
+	   EmoteLoop = true,
+       EmoteMoving = false,
+   }},
+
+```
+
+## Add to qb-smallresources/client/consumables.lua
+```lua
+RegisterNetEvent('consumables:client:UseVibrator', function(itemName)
+    TriggerEvent('animations:client:EmoteCommandStart', {"Cuddle1"})
+    SEVENCore.Functions.Progressbar("vibrator_sex", Lang:t('consumables.vibrator'), 50000, false, true, {
+        disableMovement = false,
+                disableCarMovement = false,
+                disableMouse = false,
+                disableCombat = true,
+            }, {
+                animDict = "cuddlepartner1@pawuk",
+                anim = "loop",
+                flags = 49,
+            }, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", SEVENCore.Shared.Items["vibrator"], "remove")
+        SEVENCore.Functions.Notify("Your clit is feeling amazing!", "success")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        TriggerServerEvent('hud:server:RelieveStress', math.random(2, 4))
+    end)
+end)
+```
+
+## Add to qb-smallresources/server/consumables.lua
+```lua
+SEVENCore.Functions.CreateUseableItem("vibrator", function(source)
+    TriggerClientEvent("consumables:client:UseVibrator", source, true)
+end)
+```
