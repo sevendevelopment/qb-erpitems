@@ -6,6 +6,8 @@
 
 * I may add more items feel free to PR
 
+# Installation
+
 **qb-inventory/html/images.lua**
 **Drag and drop the images into the image folder**
 
