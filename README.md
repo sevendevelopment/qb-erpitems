@@ -2,6 +2,10 @@
 
 * Adds useless ERP items to your roleplay server.
 
+# Future updates.
+
+* I may add more items feel free to PR
+
 **qb-inventory/html/images.lua**
 **Drag and drop the images into the image folder**
 
