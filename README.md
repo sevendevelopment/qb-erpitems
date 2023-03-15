@@ -60,7 +60,7 @@
         ["ped"] = 'mp_f_stripperlite',
         ["scenario"] = "WORLD_HUMAN_PROSTITUTE_HIGH_CLASS",
         ["radius"] = 1.5,
-        ["targetIcon"] = "fas fa-gun",
+        ["targetIcon"] = "fas fa-shopping-basket",
         ["targetLabel"] = "Open Sex Store",
         ["products"] = Config.Products["vu"],
         ["showblip"] = false,
